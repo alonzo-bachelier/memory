@@ -1,8 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Homemade+Apple&family=Karla:ital,wght@0,200..800;1,200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
 * {
     margin: 0;
     padding: 0;
     font-family: "Exo", sans-serif, "Times New Roman", Times, serif;
     z-index: 2;
+    user-select: none;
+}
+body {
+    background-image: url("../src/assets/images/Starry-SkyVincent-Van-Gogh-Style_54628836.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
 }
 
 .title-game {
@@ -12,6 +23,7 @@
     font-style: normal;
     user-select: none;
     font-size: 3em;
+    color: #becbff;
 }
 table,
 tr,
@@ -21,6 +33,11 @@ td {
 table {
     border: 5px outset #becbff;
     border-radius: 10px;
+    margin-bottom: 50px;
+    position: relative;
+}
+.table-container {
+    padding-bottom: 50px;
 }
 .card-container {
     margin-left: auto;
@@ -78,13 +95,20 @@ table {
     left: 0;
 }
 /*show and hide card */
-.hidden {
-    transform: scale(0, 0);
-    transition: 0.7s;
+.card.hidden {
+    display: none; /* Cache la carte */
 }
-.show {
-    transform: scale(1, 1);
-    transition: 0.7s;
+
+.card.visible {
+    display: block; /* Affiche la carte */
+}
+
+.alien.visible {
+    display: block; /* Affiche l'alien */
+}
+
+.alien.hidden {
+    display: none; /* Cache l'alien */
 }
 
 /*BUTTON START*/
@@ -269,3 +293,24 @@ strong {
     }
 }
 /*END BUTTON */
+.card {
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.flipped {
+    transform: rotateY(180deg);
+    opacity: 0.9;
+}
+.win {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 6;
+    background-color: rgba(128, 128, 128, 0.486);
+    font-size: 50px;
+    color: black;
+}

@@ -1,18 +1,26 @@
-import React from "react";
-
-import Button from "./components/Button/Button";
-import Title from "./components/title/title";
-import Cards from "./components/cards/cards";
+import React, { useState } from "react";
+import CardContext from "./components/CardContext";
+import Button from "./components/Button";
+import Title from "./components/Title";
+import CheckWin from "./components/CheckWin";
+import GameBoard from "./components/GameBoard";
+import { initializeCards } from "./components/CardData";
 
 function App() {
+    const [cards, setCards] = useState(initializeCards());
+
     return (
-        <>
+        <CardContext.Provider value={{ cards, setCards }}>
             <div>
                 <Title />
-                <Button text="SHUFFLE" />
-                <Cards />
+                <Button
+                    text="SHUFFLE"
+                    onClick={() => setCards(initializeCards())}
+                />
+
+                <GameBoard />
             </div>
-        </>
+        </CardContext.Provider>
     );
 }
 

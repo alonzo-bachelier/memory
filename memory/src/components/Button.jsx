@@ -1,14 +1,13 @@
 import React from "react";
 
-function Button(props) {
+function Button({ text, onClick }) {
     return (
         <div className="btn-container">
-            <button className="btn" type="button">
-                <strong>{props.text}</strong>
+            <button className="btn" type="button" onClick={onClick}>
+                <strong>{text}</strong>
                 <div id="container-stars">
                     <div id="stars"></div>
                 </div>
-
                 <div id="glow">
                     <div className="circle"></div>
                     <div className="circle"></div>
