@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import CardContext from "./components/CardContext";
 import Button from "./components/Button";
 import Title from "./components/Title";
-import CheckWin from "./components/CheckWin";
 import GameBoard from "./components/GameBoard";
 import { initializeCards } from "./components/CardData";
 
